@@ -69,7 +69,7 @@ namespace EventPorter.Controllers
             return View("../Home/Index");
         }
 
-        public ActionResult Profile()
+        public ActionResult AdamInfo()
         {
             return View();
         }
@@ -86,6 +86,12 @@ namespace EventPorter.Controllers
             return View();
 
             
+        }
+
+        public ActionResult Settings()
+        {
+
+            return View();
         }
 
     }

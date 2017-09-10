@@ -2,7 +2,24 @@
 @{
     ViewBag.Title = "Profile";
 }
+@section Styles{
+<link href="~/Content/Profile.css" rel="stylesheet" type="text/css" />
+}
+@section scripts{
+<script>
+    $(function () {
+        $('#Overview').on("click", function () {
+            $.get('@Url.Action("AdamInfo","Account")', function (data) {
+                $("#infoDiv").html(data);
+            });
+            $('#Settings').on("click"), function () {
+                $.get('@Url.Action("Settings","Account")' function(data) {
+                    $("#infoDiv").html(data);
+                });
+            });
 
+    </script>
+    }
 <h2>Profile</h2>
 <div class="container">
     <div class="row profile">
@@ -28,33 +45,35 @@
                 <div class="profile-Adammenu">
                     <ul class="nav">
                         <li class="active">
-                            <a href="#">
-                                <i class="glyphicon glyphicon-home"></i>
-                                Overview
-                            </a>
+                            <button class="btn glyphicon glyphicon-home profile-Adammenu" id="Overview">Overview</button>
+                            @*@Html.ActionLink(" Overview", "Profile", "Account", "", new { @class = "glyphicon glyphicon-home profile-Adammenu" })*@
+                         </li>
+                        <li>
+                            <button class="btn glyphicon glyphicon-cog profile-Adammenu" id="Settings">Settings</button>
+                            @*@Html.ActionLink(" AccountSettings", "Settings", "Account", "", new { @class = "glyphicon glyphicon-cog profile-Adammenu"})*@
                         </li>
                         <li>
-                            @Html.ActionLink("Account Settings", "Settings", "Account", "", new { @class = "glyphicon glyphicon-user profile-Adammenu"})
+                            @Html.ActionLink(" Events", "Event", "Event", "", new { @class= "glyphicon glyphicon-ok profile-Adammenu" })
                         </li>
                         <li>
-                            @Html.ActionLink("Events", "Event", "Event", "", new { @class= "glyphicon glyphicon-ok profile-Adammenu" })
-                        </li>
-                        <li>
-                            @Html.ActionLink("Help", "Help", "Contact", "", new { @class="glyphicon glyphicon-flag"})
+                            @Html.ActionLink(" Help", "Help", "Contact", "", new { @class="glyphicon glyphicon-flag"})
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-8" id="infoDiv">
+            
+        </div>
+        @*<div class="col-md-5">
             <div class="profile-content">
                 Upcoming Event cards here 
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="profile-content">
                 Past event cards here/only show these to other users
             </div>
-        </div>
+        </div>*@
     </div>
 </div>
