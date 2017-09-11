@@ -49,7 +49,7 @@ namespace EventPorter.Controllers
             if (ModelState.IsValid)
             {
                 //insert into database here
-                return View("Status");
+                return View("Profile");
             }
             else return View(user);
 
@@ -94,5 +94,9 @@ namespace EventPorter.Controllers
             return View();
         }
 
+        public ActionResult AdamProfile()
+        {
+            return View();
+        }
     }
 }

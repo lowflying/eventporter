@@ -5,21 +5,7 @@
 @section Styles{
 <link href="~/Content/Profile.css" rel="stylesheet" type="text/css" />
 }
-@section scripts{
-<script>
-    $(function () {
-        $('#Overview').on("click", function () {
-            $.get('@Url.Action("AdamInfo","Account")', function (data) {
-                $("#infoDiv").html(data);
-            });
-            $('#Settings').on("click"), function () {
-                $.get('@Url.Action("Settings","Account")' function(data) {
-                    $("#infoDiv").html(data);
-                });
-            });
 
-    </script>
-    }
 <h2>Profile</h2>
 <div class="container">
     <div class="row profile">
@@ -45,18 +31,22 @@
                 <div class="profile-Adammenu">
                     <ul class="nav">
                         <li class="active">
-                            <button class="btn glyphicon glyphicon-home profile-Adammenu" id="Overview">Overview</button>
-                            @*@Html.ActionLink(" Overview", "Profile", "Account", "", new { @class = "glyphicon glyphicon-home profile-Adammenu" })*@
-                         </li>
+                            @*<span class="glyphicon glyphicon-home profile-Adammenu" id="Overview">Overview</span>*@
+                            @*<span class="profile-Adammenu" id="Overview"><i class="glyphicon glyphicon-home"></i>Overview</span>
+                            @Html.ActionLink(" Overview", "Profile", "Account", "", new { @class = "glyphicon glyphicon-home profile-Adammenu"})*@
+                            @*<button class="btn profile-Adammenu" id="Overview">Overview</button>*@
+                            <a class="glyphicon glyphicon-home profile-Adammenu" id="Overview" > Overview</a>
+                        </li>
                         <li>
-                            <button class="btn glyphicon glyphicon-cog profile-Adammenu" id="Settings">Settings</button>
+                            @*<span class="glyphicon glyphicon-cog profile-Adammenu" id="Settings">Settings</span>*@
                             @*@Html.ActionLink(" AccountSettings", "Settings", "Account", "", new { @class = "glyphicon glyphicon-cog profile-Adammenu"})*@
+                            <a class="glyphicon glyphicon-cog profile-Adammenu" id="Settings"> Settings</a>
                         </li>
                         <li>
                             @Html.ActionLink(" Events", "Event", "Event", "", new { @class= "glyphicon glyphicon-ok profile-Adammenu" })
                         </li>
                         <li>
-                            @Html.ActionLink(" Help", "Help", "Contact", "", new { @class="glyphicon glyphicon-flag"})
+                            @Html.ActionLink(" Help", "Help", "Contact", "", new { @class="glyphicon glyphicon-flag profile-Adammenu"})
                         </li>
                     </ul>
                 </div>
@@ -77,3 +67,31 @@
         </div>*@
     </div>
 </div>
+@section scripts{
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+    @*$(function () {
+        $('#Overview').on("click", function () {
+            $.get('@Url.Action("AdamInfo","Account")', function (data) {
+                $("#infoDiv").html(data);
+            });
+            $('#Settings').on("click"), function () {
+                $.get('@Url.Action("Settings","Account")', function (data) {
+                    $("#infoDiv").html(data);
+                });
+            });
+    });*@
+    $(function () {
+        $('#Overview').on("click", function () {
+            $.get('@Url.Action("AdamInfo", "Account")', function (data) {
+                $("#infoDiv").html(data);
+            });
+        });
+        $('#Settings').on("click", function () {
+            $.get('@Url.Action("Settings", "Account")', function (data) {
+                $("#infoDiv").html(data);
+            });
+        });
+    });
+    </script>
+}

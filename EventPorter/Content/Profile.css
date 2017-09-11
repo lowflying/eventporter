@@ -53,7 +53,7 @@
 .profile-Adammenu {
     margin-top: 10px;
     color: #93a3b5;
-    font-size: 14px;
+    font-size: 140px;
     font-weight: 400;
 }
 
@@ -69,12 +69,10 @@
     color: #93a3b5;
     font-size: 14px;
     font-weight: 400;
+    user-select: none;
+    cursor: pointer;
 }
 
-.profile-Adammenu ul li a i {
-    margin-right: 8px;
-    font-size: 14px;
-}
 
 .profile-Adammenu ul li a:hover {
     background-color: #fafcfd;
